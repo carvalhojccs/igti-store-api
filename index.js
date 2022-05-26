@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import winston from "winston";
@@ -41,6 +42,6 @@ app.use((err, req, res, next) => {
 	
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("API started in http://localhost:3000");
 });
