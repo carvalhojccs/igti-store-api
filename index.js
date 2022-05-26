@@ -35,6 +35,12 @@ app.use("/product", productsRouter);
 app.use(";supplier", suppliersRouter);
 app.use("/sale", salesRouter);
 
+app.use((err, req, res, next) => {
+	logger.error(`${req.method} ${req.baseURL} - ${err.message}`);
+	res.status(400).send({ error: err.message });
+	
+});
+
 app.listen(3000, () => {
     console.log("API started in http://localhost:3000");
-})
+});
