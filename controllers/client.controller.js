@@ -13,7 +13,7 @@ async function createClient(req, res, next){
         logger.info(`POST /client - ${JSON.stringify(client)}`);
     } catch (err) {
         next(err);
-    }    
+    }
 }
 
 async function getClients(req, res, next){
@@ -26,7 +26,18 @@ async function getClients(req, res, next){
     }
 }
 
+async function getClient(req, res, next) {
+    try {
+        res.send( await clientService.getClient(req.params.id) );
+        
+        logger.info(`GET /client/${JSON.stringify(req.params.id)}`);
+    } catch (err) {
+        next(err);
+    }
+}
+
 export default {
     createClient,
     getClients,
+    getClient,
 }
