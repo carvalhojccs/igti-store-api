@@ -1,3 +1,16 @@
 2022-05-26T20:39:14.616Z [store-api] error POST undefined - Name, CPF, Phone, E-mail, and Adress is requiered!
 2022-05-26T20:40:12.742Z [store-api] error POST undefined - Name, CPF, Phone, E-mail, and Adress is requiered!
 2022-05-26T21:18:09.161Z [store-api] error POST undefined - Name, CPF, Phone, E-mail, and Adress is required!
+2022-05-26T21:44:37.273Z [store-api] error POST undefined - Class constructor BoundPool cannot be invoked without 'new'
+2022-05-26T21:46:13.414Z [store-api] error POST undefined - poll is not defined
+2022-05-26T21:46:37.360Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-26T21:49:07.235Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:36:05.348Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:37:25.711Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:43:03.699Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:44:05.885Z [store-api] error POST undefined - Name, CPF, Phone, E-mail, and Adress is required!
+2022-05-27T00:45:23.506Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:46:12.629Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:47:47.720Z [store-api] error POST undefined - Cannot read properties of undefined (reading '0')
+2022-05-27T00:48:26.134Z [store-api] info POST /client - {"name":"Jonne Silva","cpf":"11122233344","phone":"99999999999","email":"jonne.cley@gmail.com","address":"Rua Chile"}
+2022-05-27T00:50:03.004Z [store-api] info POST /client - {"name":"Jonne Silva","cpf":"11122233344","phone":"99999999999","email":"jonne.cley@gmail.com","address":"Rua Chile"}

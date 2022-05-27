@@ -5,14 +5,12 @@ async function connect(){
         return global.connection.connect();
     }
 
-    const pool = pg.Pool({
+    const pool = new pg.Pool({
         connectionString: process.env.CONNECTION_STRING,
     });
 
-    global.connection = poll;
+    global.connection = pool;
     return pool.connect();
 }
 
-export default {
-    connect
-}
+export { connect }
