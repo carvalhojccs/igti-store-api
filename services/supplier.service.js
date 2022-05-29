@@ -1,7 +1,7 @@
 import supplierRepository from "../repositories/supplier.repository.js";
 
 async function createSupplier(supplier){
-    return await supplierRepository.createSupplier(supplier);
+    return await supplierRepository.insertSupplier(supplier);
 }
 
 async function getSuppliers(){

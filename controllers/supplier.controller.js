@@ -9,7 +9,7 @@ async function createSupplier(req, res, next){
         }
 
         res.send(await supplierService.createSupplier(supplier));
-        logerr.info(`POST /supplier - ${JSON.stringify(supplier)}`);
+        logger.info(`POST /supplier - ${JSON.stringify(supplier)}`);
     } catch (err) {
         next(err);
     }    
