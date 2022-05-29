@@ -45,9 +45,9 @@ async function updateSupplier(supplier){
     const conn = await connect();
 
     try {
-        const sql = "UPDATE suppliers SET name = $1, cnpj = $2, phone = $3, email = $4, address = $5, supplier_id = $6 RETURNING *";
+        const sql = "UPDATE suppliers SET name = $1, cnpj = $2, phone = $3, email = $4, address = $5 WHERE supplier_id = $6 RETURNING *";
         const values = [ supplier.name, supplier.cnpj, supplier.phone, supplier.email, supplier.address, supplier.supplier_id ];
-        const res = conn.query(sql, values);
+        const res = await conn.query(sql, values);
         return await res.rows[0];
     } catch (err) {
         throw err;
@@ -60,7 +60,7 @@ async function deleteSupplier(id){
     const conn = await connect();
 
     try {
-        await conn.query("DELETE FROM suppiers WHERE supplier_id = $1", [id]);
+        await conn.query("DELETE FROM suppliers WHERE supplier_id = $1", [id]);
     } catch (err) {
         throw err;
     } finally {
