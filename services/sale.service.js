@@ -9,6 +9,8 @@ async function createSale(sale){
         error = "Client not found!";
     }
 
+    let product = await productRepository.getProduct(sale.product_id);
+
     if(!await productRepository.getProduct(sale.product_id)){
         error += "Product not found!";
     }
@@ -16,6 +18,11 @@ async function createSale(sale){
     if(error) {
         throw new Error(error);
     }
+
+    product.stock--;
+
+    await productRepository.updateProduct(product);
+
 
     return await saleRepository.insertSale(sale);
 }
@@ -55,7 +62,15 @@ async function updateSale(sale){
 }
 
 async function deleteSale(id){
-    return await saleRepository.deleteSale(id);
+    const sale = await saleRepository.getSale(id);
+    if(sale) {
+        const product = await productRepository.getProduct(sale.product_id);
+        await saleRepository.deleteSale(id);
+        product.stock++;
+        productRepository.updateProduct(product);
+    } else {
+        throw new Error("Sale ID not found!");
+    }
 }
 
 export default {
