@@ -5,7 +5,7 @@ import clientRepository from "../repositories/client.repository.js";
 async function createSale(sale){
     let error = "";
 
-    if(!await clientRepository.getClient(sale.client_id)){
+    if(!await clientRepository.getClient(sale.clientId)){
         error = "Client not found!";
     }
 
@@ -27,9 +27,12 @@ async function createSale(sale){
     return await saleRepository.insertSale(sale);
 }
 
-async function getSales(productId){
+async function getSales(productId, supplierId){
     if(productId){
         return await saleRepository.getSalesByProductId(productId)
+    }
+    if(supplierId) {
+        return await saleRepository.getSalesBySupplierId(supplierId);
     }
 
     return saleRepository.getSales();
@@ -47,7 +50,7 @@ async function getSale(id){
 async function updateSale(sale){
     let error = "";
 
-    if(!await clientRepository.getClient(sale.client_id)){
+    if(!await clientRepository.getClient(sale.clientId)){
         error = "Client not found!";
     }
 

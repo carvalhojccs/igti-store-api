@@ -1,15 +1,19 @@
 import productRepository from "../repositories/product.repository.js";
 import supplierRepository from "../repositories/supplier.repository.js";
+import selesRepository from "../repositories/sale.repository.js";
 
 async function createProduct(product){
-    if( await supplierRepository.getSupplier(product.supplier_id) ) {
+    if( await supplierRepository.getSupplier(product.supplierId) ) {
         return await productRepository.insertProduct(product);
     }
 
     throw new Error("Supplier not found!");    
 }
 
-async function getProducts(){
+async function getProducts(supplierId){
+    if(supplierId){
+        return productRepository.getProductsBySupplierId(supplierId);
+    }
     return productRepository.getProducts();
 }
 
@@ -23,7 +27,7 @@ async function getProduct(id){
 }
 
 async function updateProduct(product){
-    if( await supplierRepository.getSupplier(product.supplier_id) ) {
+    if( await supplierRepository.getSupplier(product.supplierId) ) {
         return await productRepository.updateProduct(product);
     }
 
@@ -31,6 +35,11 @@ async function updateProduct(product){
 }
 
 async function deleteProduct(id){
+    const sales = await selesRepository.getSalesByProductId(id);
+    if(sales) {
+        throw new Error("Product can't be deleted. There are sales for this product!");
+    }
+
     if (await productRepository.getProduct(id)) {
         return await productRepository.deleteProduct(id);    
     }

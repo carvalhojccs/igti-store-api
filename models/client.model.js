@@ -1,5 +1,6 @@
 import Sequelize from "sequelize";
 import db from "../repositories/db.js";
+//import Sale from "./sale.model.js";
 
 const Client = db.define('clients', {
     clientId: {
@@ -30,7 +31,9 @@ const Client = db.define('clients', {
     }
 }, { underscored: true });
 
-export default {
-    Client
-}
+//TODO - Implementar hasMany
+//ERRO - mongodb+srv://administrador:<password>@cluster0.9a8hr.mongodb.net/test
+//Client.hasMany(Sale);
+
+export default Client;
 

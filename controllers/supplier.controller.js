@@ -38,7 +38,7 @@ async function getSupplier(req, res, next){
 async function updateSupplier(req, res, next){
     try {
         let supplier = req.body;
-        if(!supplier.name || !supplier.cnpj || !supplier.phone || !supplier.email || !supplier.address || !supplier.supplier_id) {
+        if(!supplier.name || !supplier.cnpj || !supplier.phone || !supplier.email || !supplier.address || !supplier.supplierId) {
             throw new Error("Name, CNPJ, Phone, E-mail, Address and ID are required!");
         }
 

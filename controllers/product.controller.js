@@ -4,7 +4,7 @@ async function createProduct(req, res, next){
     try {
         const product = req.body;
 
-        if( !product.name || !product.description || !product.value || !product.stock || !product.supplier_id ) {
+        if( !product.name || !product.description || !product.value || !product.stock || !product.supplierId ) {
             throw new Error("Name, Description, Value, Stock and Supplier ID are required!");
         }
 
@@ -17,7 +17,8 @@ async function createProduct(req, res, next){
 
 async function getProducts(req, res, next){
     try {
-        res.send( await productService.getProducts() );
+        const supplierId = req.query.supplier_id;
+        res.send( await productService.getProducts(supplierId) );
         logger.info(`GET /product`);
     } catch (err) {
         next(err);
@@ -38,7 +39,7 @@ async function getProduct(req, res, next){
 async function updateProduct(req, res, next){
     try {
         let product = req.body;
-        if(!product.name || !product.description || !product.value || !product.stock || !product.supplier_id || !product.product_id) {
+        if(!product.name || !product.description || !product.value || !product.stock || !product.supplierId || !product.productId) {
             throw new Error("Name, Description, Value, Stock, Supplier ID and ID are required!");
         }
 

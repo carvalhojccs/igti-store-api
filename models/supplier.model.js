@@ -1,7 +1,8 @@
 import Sequelize from "sequelize";
 import db from "../repositories/db.js";
+//import Product from "./product.model.js";
 
-const Supplier = db.define('suppliers', {
+const Supplier = await db.define('suppliers', {
     supplierId: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -30,7 +31,6 @@ const Supplier = db.define('suppliers', {
     }
 }, { underscored: true });
 
-export default {
-    Supplier
-}
+//Supplier.hasMany(Product);
 
+export default Supplier;

@@ -3,7 +3,7 @@ import db from "../repositories/db.js";
 import Product from "./product.model.js";
 import Client from "./client.model.js";
 
-const Sale = db.define('sales', {
+const Sale = await db.define('sales', {
     saleId: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -20,10 +20,8 @@ const Sale = db.define('sales', {
     }
 }, { underscored: true });
 
-Sale.belongsTo(Client, { foreingKey: "clientId" });
-Sale.belongsTo(Product, { foreingKey: "productId" });
+Sale.belongsTo(Client, { foreignKey: "clientId" });
+Sale.belongsTo(Product, { foreignKey: "productId" });
 
-export default {
-    Sale
-}
+export default Sale;
 
