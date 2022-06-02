@@ -1,4 +1,4 @@
-# API desenvolvida dutante a pós-graduação full stack developer do IGTI/2022
+# API desenvolvida durante a pós-graduação full stack developer do IGTI/2022
 ## Banco de dados
 - PostgreSQL em nuvem <https://www.elephantsql.com>
 ## ORM
