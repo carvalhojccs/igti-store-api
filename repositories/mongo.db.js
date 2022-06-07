@@ -1,7 +1,8 @@
-import mongodb from "mongodb";
+import mongoose from "mongoose";
 
-function getlClient() {
-    return new mongodb.MongoClient(process.env.MONGODB_CONNECT_URI);
+async function connect(){
+    const uri = process.env.MONGODB_CONNECT_URI;
+    return await mongoose.connect(uri, { dbName : "store" });
 }
 
-export { getlClient }
+export { connect }
